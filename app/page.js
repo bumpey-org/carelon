@@ -6,6 +6,7 @@ import { Button } from 'flowbite-react';
 import Orders from './components/Orders';
 import { UserButton } from "@clerk/nextjs";
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
 
@@ -34,7 +35,15 @@ export default function Home() {
 
 
   return (<div className='max-w-4xl h-full min-h-screen overflow-y-auto flex flex-col gap-y-10 my-4  mx-auto px-12'>
-    <UserButton afterSignOutUrl="/" />
+    <div className="flex gap-3">
+      <UserButton afterSignOutUrl="/" />
+      <Image src='/carelon.svg'
+        alt='Carelon Logo'
+        width={120}
+        height={150}
+
+      ></Image>
+    </div>
     <div className="flex w-full gap-8">
       <Link href="/delish">
         <Button className="bg-emerald-900" onClick={() => { console.log("clicked") }}>Delish</Button>
