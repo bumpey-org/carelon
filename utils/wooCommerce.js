@@ -143,6 +143,6 @@ export const calculateCustomerTotals = (customers, orders) => {
 
     return Object.values(customerTotals).map(customer => ({
         ...customer,
-        customerId: customer.id
+        //customerId: customer.id
     }));
 };

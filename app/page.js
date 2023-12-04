@@ -24,11 +24,9 @@ export default function Home() {
 
   // Handle date change
   const handleStartDateChange = (date) => {
-    console.log(date)
     setStartDate(formatDate(date));
   };
   const handleEndDateChange = (date) => {
-    console.log(date)
     setEndDate(formatDate(date));
   };
 
@@ -46,10 +44,10 @@ export default function Home() {
     </div>
     <div className="flex w-full gap-8">
       <Link href="/delish">
-        <Button className="bg-emerald-900" onClick={() => { console.log("clicked") }}>Delish</Button>
+        <Button className="bg-emerald-900">Delish</Button>
       </Link>
       <Link href="/factory">
-        <Button className="bg-emerald-900" onClick={() => { console.log("clicked") }}>Factory</Button>
+        <Button className="bg-emerald-900">Factory</Button>
       </Link>
     </div>
   </div>

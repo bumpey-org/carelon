@@ -5,6 +5,7 @@ import {
   getOrders,
   calculateCustomerTotals,
 } from '@/utils/wooCommerce';
+import DownloadCSV from './DownloadCSV';
 
 export default function Orders({ startDate, endDate, location }) {
   const [orders, setOrders] = useState([]);
@@ -14,7 +15,6 @@ export default function Orders({ startDate, endDate, location }) {
 
   useEffect(() => {
     const fetchOrders = async () => {
-      // console.log(process.env.NEXTAUTH_SECRET);
       try {
         const fetchedOrders = await getOrders({
           after: startDate,
@@ -22,10 +22,9 @@ export default function Orders({ startDate, endDate, location }) {
           location,
         });
         const fetchedCustomers = await getCustomers({ location });
-        console.log(fetchedCustomers);
+
         setOrders(fetchedOrders);
         const data = calculateCustomerTotals(fetchedCustomers, fetchedOrders);
-        console.log(data);
         setCustomers(data);
       } catch (err) {
         console.error('Failed to fetch orders:', err);
@@ -62,6 +61,18 @@ export default function Orders({ startDate, endDate, location }) {
     <div className="w-full mx-auto text-white">
       {customers.length > 0 ? (
         <div className="overflow-x-auto  shadow-md sm:rounded-lg">
+          <div className="my-4 flex gap-4 w-full justify-end text-sm">
+            <div className="text-gray-500">
+              {startDate} -&gt;` {endDate}
+            </div>
+            <DownloadCSV
+              data={customers}
+              startDate={startDate}
+              endDate={endDate}
+              location={location}
+            ></DownloadCSV>
+          </div>
+
           <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>

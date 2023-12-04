@@ -2,9 +2,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import { UserButton } from "@clerk/nextjs";
-
-
-
 import { Datepicker } from 'flowbite-react';
 import Orders from '../components/Orders';
 import Link from 'next/link';
@@ -31,11 +28,9 @@ export default function Home() {
 
     // Handle date change
     const handleStartDateChange = (date) => {
-        console.log(date)
         setStartDate(formatDate(date));
     };
     const handleEndDateChange = (date) => {
-        console.log(date)
         setEndDate(formatDate(date));
     };
 
@@ -54,8 +49,6 @@ export default function Home() {
                             </Link>
                         </div>
                         <UserButton afterSignOutUrl="/" />
-
-
                     </div>
                     <h3 className="text-base font-normal text-gray-500 dark:text-gray-400">Sales</h3>
                     <span className="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">Factory</span>
@@ -88,7 +81,7 @@ export default function Home() {
                 </div>
             </div>
 
-            <div className="flex items-center justify-between pt-3 mt-4  sm:pt-6 ">
+            <div className="flex items-center justify-between">
                 <Orders key={ordersKey} location='factory' startDate={startDate} endDate={endDate}></Orders>
             </div>
         </div>
