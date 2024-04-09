@@ -49,6 +49,9 @@ export default function Home() {
       <Link href="/factory">
         <Button className="bg-emerald-900">Factory</Button>
       </Link>
+      <Link href="/raasta">
+        <Button className="bg-emerald-900">Raasta</Button>
+      </Link>
     </div>
   </div>
   );

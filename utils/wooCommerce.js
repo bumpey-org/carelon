@@ -27,6 +27,11 @@ const initializeWooCommerce = (location) => {
             wooCommerceConsumerKey = process.env.NEXT_PUBLIC_FACTORYWOO_ConsumerKey;
             wooCommerceConsumerSecret = process.env.NEXT_PUBLIC_FACTORYWOO_SecretKey;
             break;
+        case 'raasta':
+            wooCommerceUrl = process.env.NEXT_PUBLIC_RAASTAWOO_URL;
+            wooCommerceConsumerKey = process.env.NEXT_PUBLIC_RAASTAWOO_ConsumerKey;
+            wooCommerceConsumerSecret = process.env.NEXT_PUBLIC_RAASTAWOO_SecretKey;
+            break;
         default: // Default to 'delish'
             wooCommerceUrl = process.env.NEXT_PUBLIC_DELISHWOO_URL;
             wooCommerceConsumerKey = process.env.NEXT_PUBLIC_DELISHWOO_ConsumerKey;
